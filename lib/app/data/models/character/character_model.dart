@@ -5,51 +5,58 @@ part 'character_model.g.dart';
 class CharacterModel {
   CharacterModel({
     required this.id,
-    required this.nameHero,
-    this.descriptionHero,
-    this.dateModified,
-    this.collectionComics,
-    required this.thumbnail,
+    required this.name,
+    required this.status,
+    required this.species,
+    required this.gender,
+    required this.image,
+    this.episode,
+    this.location,
   });
 
   @JsonKey()
   final int id;
 
-  @JsonKey(name: 'name')
-  final String nameHero;
-
-  @JsonKey(name: 'description')
-  final String? descriptionHero;
+  @JsonKey()
+  final String name;
 
   @JsonKey()
-  final Map<String, dynamic> thumbnail;
+  final String image;
 
-  @JsonKey(name: 'modified')
-  final DateTime? dateModified;
+  @JsonKey()
+  final String status;
 
-  @JsonKey(name: 'comics')
-  final Map<String, dynamic>? collectionComics;
+  @JsonKey()
+  final String species;
 
-  String get urlImg =>
-      '${this.thumbnail["path"]}.${this.thumbnail["extension"]}';
-  
-  String get urlReleatedComics => '${collectionComics?["collectionURI"]}';
+  @JsonKey()
+  final String? gender;
+
+  @JsonKey()
+  final List<String>? episode;
+
+  @JsonKey()
+  final Map<String, dynamic>? location;
 
   CharacterModel copyWith({
     int? id,
-    String? nameHero,
-    String? descriptionHero,
-    DateTime? dateModified,
-    Map<String, dynamic>? collectionComics,
-    Map<String, dynamic>? thumbnail,
+    String? name,
+    String? status,
+    String? species,
+    String? gender,
+    String? image,
+    List<String>? episode,
+    Map<String, dynamic>? location,
   }) =>
       CharacterModel(
         id: id ?? this.id,
-        nameHero: nameHero ?? this.nameHero,
-        descriptionHero: descriptionHero ?? this.descriptionHero,
-        dateModified: dateModified ?? this.dateModified,
-        collectionComics: collectionComics ?? this.collectionComics,
-        thumbnail: thumbnail ?? this.thumbnail,
+        name: name ?? this.name,
+        gender: gender ?? this.gender,
+        species: species ?? this.species,
+        image: image ?? this.image,
+        status: status ?? this.status,
+        episode: episode ?? this.episode,
+        location: location ?? this.location,
       );
 
   static List<CharacterModel> listFromJson(List<dynamic> list) {

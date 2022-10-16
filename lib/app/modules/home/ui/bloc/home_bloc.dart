@@ -1,0 +1,64 @@
+import 'dart:core';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rick_and_morty_app/app/core/bloc/generic_field_bloc.dart';
+import 'package:rick_and_morty_app/app/core/errors/failure.dart';
+import 'package:rick_and_morty_app/app/modules/home/application/querys/get_characters_usecase.dart';
+import 'package:rick_and_morty_app/app/modules/home/domain/models/info_character_dom.dart';
+import 'package:rick_and_morty_app/app/modules/home/ui/bloc/home_state.dart';
+
+class HomeBloc extends Cubit<HomeState> {
+  HomeBloc({required this.getCharactersUseCase}) : super(HomeState.init()) {
+    init();
+  }
+
+  final GetCharactersUseCase getCharactersUseCase;
+
+  int page = 1;
+  GenericFieldBloc<List<InfoCharacterDom>> listDom =
+      GenericFieldBloc<List<InfoCharacterDom>>(
+          defaultValue: <InfoCharacterDom>[]);
+  ValueNotifier<bool> loadingScroll = ValueNotifier<bool>(false);
+
+  // =================================================================
+  Future<void> init() async {
+    emit(HomeState.loading());
+    final data = await executeGetCharacters();
+    listDom.sink(data);
+    if (state is! HomeErrorState) emit(HomeState.success());
+  }
+
+  void emitState(HomeState state) => emit(state);
+
+  void scrollControllerListener(ScrollController scrollController) async {
+    if (scrollController.offset >= scrollController.position.maxScrollExtent) {
+      await infiniteScrollCharacters();
+    }
+  }
+
+  Future<List<InfoCharacterDom>> executeGetCharacters() async {
+    List<InfoCharacterDom> listCharacters = <InfoCharacterDom>[];
+    final response = await getCharactersUseCase.execute(page);
+    response?.fold(
+      (Failure left) => emit(HomeState.error()),
+      (List<InfoCharacterDom> value) {
+        listCharacters.addAll(value);
+      },
+    );
+    return listCharacters;
+  }
+
+  Future<void> infiniteScrollCharacters() async {
+    page += 1;
+    loadingScroll.value = true;
+    final loadElements = await executeGetCharacters();
+    loadingScroll.value = false;
+    listDom.value!.addAll(loadElements);
+    listDom.sink(listDom.value);
+  }
+
+  @override
+  Future<void> close() {
+    return super.close();
+  }
+}
