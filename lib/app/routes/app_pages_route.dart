@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rick_and_morty_app/app/di/injection.dart';
+import 'package:rick_and_morty_app/app/modules/home/application/querys/get_characters_usecase.dart';
+import 'package:rick_and_morty_app/app/modules/home/ui/bloc/home_bloc.dart';
+import 'package:rick_and_morty_app/app/modules/home/ui/home_page.dart';
+import 'package:rick_and_morty_app/app/routes/app_routes.dart';
 
 mixin AppPagesRoute {
   static Map<String, Widget Function(BuildContext)> getRoutes() {
-    return <String, Widget Function(BuildContext)>{};
+    return <String, Widget Function(BuildContext)>{
+      AppRoutes.home: (BuildContext context) => BlocProvider<HomeBloc>(
+            child: const HomePage(),
+            create: (context) => HomeBloc(
+              getCharactersUseCase: getItApp<GetCharactersUseCase>(),
+            ),
+          ),
+    };
   }
 
   static BlocProvider<T> getInstanceBloc<T extends BlocBase<dynamic>>(
