@@ -9,12 +9,37 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.2
+  # IoC
+  injectable: ^1.5.3
+  #path provider
+  path_provider: ^2.0.11
+  # client http
+  http: ^0.13.5
+  #get it apps logic
+  get_it: ^7.2.0
+  #Functional programming in Dart
+  dartz: ^0.10.1
+  #Equatable is a package to compare Objects by values instead reference
+  equatable: ^2.0.5
+  #json annotation
+  json_annotation: ^4.6.0
+  #asynchronous programming
+  rxdart: ^0.27.5
+  #management states
+  flutter_bloc: ^8.1.1
+  #enviroments variables
+  flutter_dotenv: ^5.0.2
+  #using file lottie json
+  lottie: ^1.4.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.1.2
+  flutter_lints: ^2.0.1
+  injectable_generator: ^1.5.2
+  json_serializable: ^6.2.0
 
 flutter:
   uses-material-design: true
