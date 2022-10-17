@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rick_and_morty_app/app/core/widgets/show_snack_bar_widget.dart';
 import 'package:rick_and_morty_app/app/modules/home/domain/models/info_character_dom.dart';
 import 'package:rick_and_morty_app/app/modules/home/ui/bloc/home_bloc.dart';
 import 'package:rick_and_morty_app/app/modules/home/ui/bloc/home_state.dart';
@@ -39,8 +40,12 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
           title: const Text('Personajes de Rick And Morty'), elevation: 0),
       body: BlocListener<HomeBloc, HomeState>(
-        listener: (BuildContext context, HomeState state) async {
-          if (state is HomeErrorState) {}
+        listener: (BuildContext ctx, HomeState state) async {
+          if (state is HomeErrorState) {
+            await SnackBarFloating.show(
+                ctx, state.controlError?.message ?? 'Unknown',
+                type: TypeAlert.error);
+          }
         },
         child: BlocBuilder<HomeBloc, HomeState>(
           builder: (BuildContext context, HomeState state) {
@@ -72,6 +77,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Expanded(
               child: ListView.builder(
+                controller: scrollController,
                 itemCount: snapshot.data!.length,
                 itemBuilder: (ctx, idx) {
                   return CardHeroWidget(character: snapshot.data![idx]);

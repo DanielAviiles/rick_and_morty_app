@@ -1,9 +1,15 @@
+import 'package:rick_and_morty_app/app/core/errors/failure.dart';
+
 class HomeState {
-  HomeState();
+  HomeState({this.controlError});
+
+  final Failure? controlError;
+
   factory HomeState.init() => HomeInitState();
   factory HomeState.loading() => HomeLoadingState();
   factory HomeState.success() => HomeSuccessState();
-  factory HomeState.error() => HomeErrorState();
+  factory HomeState.error({Failure? controlError}) =>
+      HomeErrorState(controlError: controlError);
 }
 
 class HomeInitState extends HomeState {
@@ -19,5 +25,6 @@ class HomeSuccessState extends HomeState {
 }
 
 class HomeErrorState extends HomeState {
-  HomeErrorState() : super();
+  HomeErrorState({this.controlError}) : super(controlError: controlError);
+  final Failure? controlError;
 }

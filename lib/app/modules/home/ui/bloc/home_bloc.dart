@@ -23,6 +23,8 @@ class HomeBloc extends Cubit<HomeState> {
   // =================================================================
   Future<void> init() async {
     emit(HomeState.loading());
+    page = 1;
+    listDom.sink([]);
     final data = await executeGetCharacters();
     listDom.sink(data);
     if (state is! HomeErrorState) emit(HomeState.success());
@@ -40,7 +42,7 @@ class HomeBloc extends Cubit<HomeState> {
     List<InfoCharacterDom> listCharacters = <InfoCharacterDom>[];
     final response = await getCharactersUseCase.execute(page);
     response?.fold(
-      (Failure left) => emit(HomeState.error()),
+      (Failure left) => emit(HomeState.error(controlError: left)),
       (List<InfoCharacterDom> value) {
         listCharacters.addAll(value);
       },
