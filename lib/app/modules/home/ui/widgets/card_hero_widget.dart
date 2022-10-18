@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty_app/app/modules/home/domain/models/info_character_dom.dart';
+import 'package:rick_and_morty_app/app/routes/app_routes.dart';
 
 class CardHeroWidget extends StatelessWidget {
   const CardHeroWidget({Key? key, required this.character}) : super(key: key);
@@ -10,17 +11,20 @@ class CardHeroWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      child: SizedBox(
-        height: 100,
-        child: Card(
-          elevation: 3,
+      child: Card(
+        elevation: 3,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
           child: ListTile(
             dense: true,
-            leading: Image.network(
-              character.image,
-              fit: BoxFit.fill,
-              errorBuilder: (ctx, error, _) =>
-                  Icon(Icons.image_not_supported_sharp),
+            leading: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(6)),
+              child: Image.network(
+                character.image,
+                fit: BoxFit.fill,
+                errorBuilder: (ctx, error, _) =>
+                    Icon(Icons.image_not_supported_sharp),
+              ),
             ),
             title: Text(character.name,
                 overflow: TextOverflow.ellipsis,
@@ -62,8 +66,8 @@ class CardHeroWidget extends StatelessWidget {
               ],
             ),
             onTap: () {
-              /* Navigator.pushNamed(context, AppRoutes.detail_character,
-                arguments: character); */
+              Navigator.pushNamed(context, AppRoutes.detail_character,
+                  arguments: character.id);
             },
           ),
         ),

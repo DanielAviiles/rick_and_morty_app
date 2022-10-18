@@ -24,7 +24,7 @@ class ShowErrorMsgWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Center(
               child: Text(
-                'Error al cargar datos de personajes. Desliza de arriba hacía abajo para intentar refrescar nuevamente.',
+                'Error al cargar datos de personaje(s). Desliza de arriba hacía abajo para intentar refrescar nuevamente.',
                 style: TextStyle(fontSize: 18),
               ),
             ),
