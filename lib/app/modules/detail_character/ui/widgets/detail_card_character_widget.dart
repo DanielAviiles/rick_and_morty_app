@@ -11,13 +11,13 @@ class DetailCardCharacter extends StatelessWidget {
   Widget build(BuildContext context) {
     final double radius = 8;
     return Container(
-      height: MediaQuery.of(context).size.height * .52,
+      height: MediaQuery.of(context).size.height * .54,
       padding: EdgeInsets.symmetric(horizontal: 30).copyWith(top: 20),
       child: Card(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(radius))),
         elevation: 30,
-        shadowColor: Colors.lightBlueAccent,
+        shadowColor: Colors.grey.shade400,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -59,6 +59,7 @@ class DetailCardCharacter extends StatelessWidget {
             textCard('Genero: \t${character.gender}'),
             textCard('Origen: \t${character.origin}'),
             textCard('Ubicacion: \t${character.location}'),
+            textCard('Numero de episodios: \t${character.numberEpisodes}'),
           ],
         ),
       ),
@@ -67,5 +68,6 @@ class DetailCardCharacter extends StatelessWidget {
 
   Widget textCard(String value) => Padding(
       padding: const EdgeInsets.only(left: 20),
-      child: Text(value, style: TextStyle(fontSize: 16)));
+      child: Text(value,
+          overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 16)));
 }

@@ -7,6 +7,7 @@ class DetailCharacterDom {
     required this.gender,
     required this.location,
     required this.origin,
+    required this.numberEpisodes,
   });
 
   final int id;
@@ -16,4 +17,5 @@ class DetailCharacterDom {
   final String image;
   final String origin;
   final String location;
+  final int numberEpisodes;
 }

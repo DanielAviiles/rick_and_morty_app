@@ -41,6 +41,7 @@ class DetailCharacterRepositoryRemoteImpl implements DetailCharacterRepository {
             species: characterModel.species,
             origin: characterModel.origin!['name'],
             location: characterModel.location!['name'],
+            numberEpisodes: characterModel.episode?.length ?? 0
           ),
         );
       }
