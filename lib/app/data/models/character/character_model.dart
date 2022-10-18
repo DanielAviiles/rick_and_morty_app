@@ -12,6 +12,7 @@ class CharacterModel {
     required this.image,
     this.episode,
     this.location,
+    this.origin,
   });
 
   @JsonKey()
@@ -38,6 +39,9 @@ class CharacterModel {
   @JsonKey()
   final Map<String, dynamic>? location;
 
+  @JsonKey()
+  final Map<String, dynamic>? origin;
+
   CharacterModel copyWith({
     int? id,
     String? name,
@@ -47,6 +51,7 @@ class CharacterModel {
     String? image,
     List<String>? episode,
     Map<String, dynamic>? location,
+    Map<String, dynamic>? origin,
   }) =>
       CharacterModel(
         id: id ?? this.id,
@@ -57,6 +62,7 @@ class CharacterModel {
         status: status ?? this.status,
         episode: episode ?? this.episode,
         location: location ?? this.location,
+        origin: origin ?? this.origin,
       );
 
   static List<CharacterModel> listFromJson(List<dynamic> list) {
