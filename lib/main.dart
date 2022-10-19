@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Marvel Characters - Mobile',
       theme: ThemeData.light().copyWith(
           appBarTheme: const AppBarTheme(
-        color: Colors.red,
+        color: Color.fromRGBO(25, 30, 56, 1),
       )),
       routes: AppPagesRoute.getRoutes(),
       initialRoute: AppRoutes.home,
