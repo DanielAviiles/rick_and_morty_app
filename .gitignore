@@ -42,8 +42,8 @@ lib/generated_plugin_registrant.dart
 .project
 .settings/
 *.env
-*.env.development
-*.env.production
+# *.env.development
+# *.env.production
 *.g.dart
 *.mocks.dart
 
