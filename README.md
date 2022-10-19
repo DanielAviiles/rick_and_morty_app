@@ -19,6 +19,10 @@ fvm, anteponer "fvm" en flutter, es decir, un ejemplo sería "fvm flutter clean"
 Para generar APK del proyecto en diferentes arquitecturas [armeabi-v7a, arm64-v8a, x86_64]
 se debe correr el siguente comando:
   * flutter build apk --split-per-abi
+La cual quedarán ubicadas en la siguiente ruta:
+  * [project]/build/app/outputs/apk/release/app-armeabi-v7a-release.apk
+  * [project]/build/app/outputs/apk/release/app-arm64-v8a-release.apk
+  * [project]/build/app/outputs/apk/release/app-x86_64-release.apk
 
 ## Documentación de arquitectura
 ### [lib/app/core]
