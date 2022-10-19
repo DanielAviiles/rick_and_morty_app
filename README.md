@@ -15,6 +15,10 @@ fvm, anteponer "fvm" en flutter, es decir, un ejemplo sería "fvm flutter clean"
   * flutter clean
   * flutter pub get
   * flutter pub run build_runner build --delete-conflicting-outputs
+### Comandos para generar APK en mode release
+Para generar APK del proyecto en diferentes arquitecturas [armeabi-v7a, arm64-v8a, x86_64]
+se debe correr el siguente comando:
+  * flutter build apk --split-per-abi
 
 ## Documentación de arquitectura
 ### [lib/app/core]
