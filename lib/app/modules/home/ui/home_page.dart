@@ -68,6 +68,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget textValue(String value, {bool title = false}) => Text(value,
+      style:
+          title ? TextStyle(fontSize: 18, fontWeight: FontWeight.bold) : null);
+
   Widget _renderViewCharacters(BuildContext context, HomeBloc homeBloc) {
     return StreamBuilder<List<InfoCharacterDom>?>(
       stream: homeBloc.listDom.stream,
@@ -76,23 +80,34 @@ class _HomePageState extends State<HomePage> {
         return Column(
           children: [
             Expanded(
+              flex: 2,
+              child: Column(
+                children: [
+                  const SizedBox(height: 15),
+                  textValue('La serie en números', title: true),
+                  textValue('${homeBloc.numberEpisodes} número de episodios'),
+                  textValue('Lugar o ubicación con mas personajes:', title: true),
+                  textValue(homeBloc.nameLocation),
+                ],
+              ),
+            ),
+            Expanded(
+              flex: 12,
               child: ListView.builder(
                 controller: scrollController,
                 itemCount: snapshot.data!.length,
-                itemBuilder: (ctx, idx) {
-                  return CardHeroWidget(character: snapshot.data![idx]);
-                },
+                itemBuilder: (ctx, idx) =>
+                    CardHeroWidget(character: snapshot.data![idx]),
               ),
             ),
             ValueListenableBuilder<bool>(
               valueListenable: homeBloc.loadingScroll,
-              builder: (context, value, child) => Visibility(
-                visible: value,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: Center(child: CircularProgressIndicator()),
-                ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Center(child: CircularProgressIndicator()),
               ),
+              builder: (context, value, child) =>
+                  Visibility(visible: value, child: child!),
             )
           ],
         );

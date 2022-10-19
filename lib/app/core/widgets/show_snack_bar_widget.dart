@@ -35,18 +35,19 @@ class SnackBarFloating {
     );
 
     final snackBar = SnackBar(
-      content: Row(
-        children: [
-          Icon(
-            typeAlert.icon,
-            size: 22,
-            color: Colors.white,
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          Text(typeAlert.label),
-        ],
+      content: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            Icon(
+              typeAlert.icon,
+              size: 22,
+              color: Colors.white,
+            ),
+            const SizedBox(width: 10),
+            Text(typeAlert.label, overflow: TextOverflow.ellipsis),
+          ],
+        ),
       ),
       duration: duration!,
       backgroundColor: typeAlert.color,

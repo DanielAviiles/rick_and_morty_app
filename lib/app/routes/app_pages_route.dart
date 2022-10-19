@@ -5,6 +5,8 @@ import 'package:rick_and_morty_app/app/modules/detail_character/application/quer
 import 'package:rick_and_morty_app/app/modules/detail_character/ui/bloc/detail_character_bloc.dart';
 import 'package:rick_and_morty_app/app/modules/detail_character/ui/detail_character_page.dart';
 import 'package:rick_and_morty_app/app/modules/home/application/querys/get_characters_usecase.dart';
+import 'package:rick_and_morty_app/app/modules/home/application/querys/get_info_episodes_usecase.dart';
+import 'package:rick_and_morty_app/app/modules/home/application/querys/get_name_location_usecase.dart';
 import 'package:rick_and_morty_app/app/modules/home/ui/bloc/home_bloc.dart';
 import 'package:rick_and_morty_app/app/modules/home/ui/home_page.dart';
 import 'package:rick_and_morty_app/app/routes/app_routes.dart';
@@ -15,7 +17,10 @@ mixin AppPagesRoute {
       AppRoutes.home: (BuildContext context) => BlocProvider<HomeBloc>(
             child: const HomePage(),
             create: (context) => HomeBloc(
-                getCharactersUseCase: getItApp<GetCharactersUseCase>()),
+              getCharactersUseCase: getItApp<GetCharactersUseCase>(),
+              getNumberEpisodesUseCase: getItApp<GetNumberEpisodesUseCase>(),
+              getLocationNameUseCase: getItApp<GetLocationNameUseCase>(),
+            ),
           ),
       AppRoutes.detail_character: (BuildContext context) =>
           BlocProvider<DetailCharacterBloc>(
