@@ -15,6 +15,7 @@
 
 migrate_working_dir/
 .fvm/flutter_sdk
+.fvm/
 
 # IntelliJ related
 *.iml

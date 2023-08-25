@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_app/app/core/models/type_alert_snackbar_model.dart';
+import 'package:rick_and_morty_app/core/entities/type_alert_snackbar_model.dart';
 
 enum TypeAlert {
   success,
   error,
 }
 
-const Map<String, TypeAlertSnackBar> typeAlert = {
-  'success': TypeAlertSnackBar(
+const Map<String, TypeAlertSnackBarEntity> typeAlert = {
+  'success': TypeAlertSnackBarEntity(
     label: 'Success',
     color: Colors.green,
     icon: Icons.check_circle,
   ),
-  'error': TypeAlertSnackBar(
+  'error': TypeAlertSnackBarEntity(
     label: 'Error',
     icon: Icons.error,
     color: Colors.red,
@@ -56,7 +56,7 @@ class SnackBarFloating {
     return await ScaffoldMessenger.of(context).showSnackBar(snackBar).closed;
   }
 
-  static TypeAlertSnackBar _getTypeAlertSnackBar(TypeAlert type) {
+  static TypeAlertSnackBarEntity _getTypeAlertSnackBar(TypeAlert type) {
     switch (type) {
       case TypeAlert.error:
         return typeAlert['error']!;
