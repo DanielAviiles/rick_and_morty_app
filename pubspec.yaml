@@ -4,42 +4,59 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.18.2 <3.0.0"
+  sdk: ">=2.19.3 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  # IoC
-  injectable: ^1.5.3
-  #path provider
-  path_provider: ^2.0.11
-  # client http
-  http: ^0.13.5
-  #get it apps logic
-  get_it: ^7.2.0
-  #Functional programming in Dart
+
+  # Management locale store
+  shared_preferences: ^2.1.0
+  # =========================
+
+  # State Management
   dartz: ^0.10.1
+  flutter_bloc: ^8.1.2
+  rxdart: ^0.27.7
+  # =========================
+
+  # Network Management
+  http: ^0.13.5
+  connectivity_plus: ^3.0.3
+  # =========================
+
+  #Global Injection App
+  get_it: ^7.2.0
+  injectable: ^2.1.1
+  # =========================
+
   #Equatable is a package to compare Objects by values instead reference
   equatable: ^2.0.5
-  #json annotation
-  json_annotation: ^4.6.0
-  #asynchronous programming
-  rxdart: ^0.27.5
-  #management states
-  flutter_bloc: ^8.1.1
-  #enviroments variables
   flutter_dotenv: ^5.0.2
-  #using file lottie json
   lottie: ^1.4.2
+  json_annotation: ^4.8.0
+  google_fonts: ^4.0.4
+  responsive_sizer: ^3.2.0
+  flutter_vector_icons: ^2.0.0
+  crypto: ^3.0.2
+  external_path: ^1.0.3
+  path_provider: ^2.0.15
+  permission_handler: ^10.2.0
+  intl: ^0.17.0
+  jiffy: ^5.0.0
+  mask_text_input_formatter: ^2.4.0
+  flutter_svg: ^2.0.5
+  package_info_plus: ^4.0.1
+  animated_bottom_navigation_bar: ^1.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^2.1.2
   flutter_lints: ^2.0.1
-  injectable_generator: ^1.5.2
-  json_serializable: ^6.2.0
+  injectable_generator: ^2.1.5
+  json_serializable: ^6.6.1
+  build_runner: ^2.3.3
 
 flutter:
   uses-material-design: true
