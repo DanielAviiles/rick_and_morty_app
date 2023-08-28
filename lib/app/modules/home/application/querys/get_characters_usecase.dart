@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+/* import 'package:dartz/dartz.dart';
 import 'package:rick_and_morty_app/app/core/errors/failure.dart';
 import 'package:rick_and_morty_app/app/core/usecase/query.dart';
 import 'package:rick_and_morty_app/app/modules/home/domain/models/info_character_dom.dart';
@@ -14,3 +14,4 @@ class GetCharactersUseCase
   Future<Either<Failure, List<InfoCharacterDom>>?> execute(int params) async =>
       infoCharacterRepository.getCharacters(params);
 }
+ */

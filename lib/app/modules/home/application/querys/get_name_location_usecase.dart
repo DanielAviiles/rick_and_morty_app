@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+/* import 'package:dartz/dartz.dart';
 import 'package:rick_and_morty_app/app/core/errors/failure.dart';
 import 'package:rick_and_morty_app/app/core/usecase/query.dart';
 import 'package:injectable/injectable.dart';
@@ -14,3 +14,4 @@ class GetLocationNameUseCase
   Future<Either<Failure, String>?> execute(NoParams params) async =>
       infoLocationsRepository.getNameLocationWithMoreCharacters();
 }
+ */

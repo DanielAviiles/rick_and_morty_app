@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 import 'package:rick_and_morty_app/app/modules/home/domain/models/info_character_dom.dart';
 import 'package:rick_and_morty_app/app/routes/app_routes.dart';
 
@@ -94,3 +94,4 @@ class CardHeroWidget extends StatelessWidget {
     return statusColor;
   }
 }
+ */

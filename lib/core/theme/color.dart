@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-const mainYellow = Colors.amber;
+const mainColor = Color(0xFFEFECE3);
 const mainBlue = Color(0xFF2A328E);
 const darkBlue = Color(0xFF0B1E60);
 const highlightBlue = Color(0xFF1A44DB);
 const mainBlack = Color(0xFF000000);
+const mainObscureTabNavigation = Color(0xFF363936);
 const mainWhite = Colors.white;
+const mainYellow = Color(0xFFF6A621);
 const mainGrey = Color(0xFFADB8C4);
 const highlightGrey = Color(0xFFE8E8E8);
 const highlightError = Color(0xFFE84855);

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_app/app/core/widgets/show_snack_bar_widget.dart';
 import 'package:rick_and_morty_app/app/modules/home/domain/models/info_character_dom.dart';
@@ -115,3 +115,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+ */

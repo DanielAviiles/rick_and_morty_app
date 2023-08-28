@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rick_and_morty_app/core/injection/all_remove_register_injection.dart';
 import 'package:rick_and_morty_app/core/injection/core_di.dart';
+import 'package:rick_and_morty_app/core/injection/injection_container.config.dart';
 
 final getIt = GetIt.instance;
 

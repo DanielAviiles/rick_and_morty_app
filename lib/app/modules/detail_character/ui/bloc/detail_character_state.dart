@@ -1,4 +1,4 @@
-import 'package:rick_and_morty_app/app/core/errors/failure.dart';
+/* import 'package:rick_and_morty_app/app/core/errors/failure.dart';
 import 'package:rick_and_morty_app/app/modules/detail_character/domain/models/detail_character_dom.dart';
 
 class DetailCharacterState {
@@ -33,3 +33,4 @@ class DetailCharacterErrorState extends DetailCharacterState {
       : super(controlError: controlError);
   final Failure? controlError;
 }
+ */

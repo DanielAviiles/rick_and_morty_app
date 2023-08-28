@@ -1,7 +1,9 @@
+import 'package:equatable/equatable.dart';
 import 'package:rick_and_morty_app/core/entities/serealizable_entity.dart';
 import 'package:rick_and_morty_app/core/models/images/images_model.dart';
 
-class ImagesEntity with SerealizableResponseEntity<ImagesEntity> {
+class ImagesEntity extends Equatable
+    with SerealizableResponseEntity<ImagesEntity> {
   ImagesEntity({
     required this.id,
     required this.name,
@@ -24,4 +26,7 @@ class ImagesEntity with SerealizableResponseEntity<ImagesEntity> {
 
   @override
   Map<String, dynamic> toJson() => toModel().toJson();
+
+  @override
+  List<Object?> get props => [id, name, path];
 }

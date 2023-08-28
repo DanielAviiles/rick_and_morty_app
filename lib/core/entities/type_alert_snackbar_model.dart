@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-class TypeAlertSnackBarEntity {
+class TypeAlertSnackBarEntity extends Equatable {
   const TypeAlertSnackBarEntity({
     required this.icon,
     required this.label,
@@ -22,4 +23,7 @@ class TypeAlertSnackBarEntity {
       label: label ?? this.label,
     );
   }
+
+  @override
+  List<Object?> get props => [icon, label, color];
 }

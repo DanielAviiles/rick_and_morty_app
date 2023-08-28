@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-class MessageResponseEntity {
+class MessageResponseEntity extends Equatable {
   const MessageResponseEntity({
     required this.title,
     required this.description,
@@ -15,4 +16,7 @@ class MessageResponseEntity {
   const MessageResponseEntity.empty()
       : title = '',
         description = '';
+
+  @override
+  List<Object?> get props => [title, description];
 }

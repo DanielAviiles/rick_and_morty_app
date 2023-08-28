@@ -1,4 +1,4 @@
-import 'package:rick_and_morty_app/app/core/errors/failure.dart';
+/* import 'package:rick_and_morty_app/app/core/errors/failure.dart';
 
 class HomeState {
   HomeState({this.controlError});
@@ -28,3 +28,4 @@ class HomeErrorState extends HomeState {
   HomeErrorState({this.controlError}) : super(controlError: controlError);
   final Failure? controlError;
 }
+ */
