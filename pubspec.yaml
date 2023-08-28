@@ -9,7 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
 
   # Management locale store
   shared_preferences: ^2.1.0
@@ -31,20 +30,15 @@ dependencies:
   injectable: ^2.1.1
   # =========================
 
-  #Equatable is a package to compare Objects by values instead reference
   equatable: ^2.0.5
+  cupertino_icons: ^1.0.5
   lottie: ^1.4.2
   json_annotation: ^4.8.0
   google_fonts: ^4.0.4
   responsive_sizer: ^3.2.0
   flutter_vector_icons: ^2.0.0
-  crypto: ^3.0.2
-  external_path: ^1.0.3
-  path_provider: ^2.0.15
-  permission_handler: ^10.2.0
   intl: ^0.17.0
   jiffy: ^5.0.0
-  mask_text_input_formatter: ^2.4.0
   flutter_svg: ^2.0.5
   package_info_plus: ^4.0.1
   animated_bottom_navigation_bar: ^1.2.0
@@ -61,9 +55,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - .env.development
-    - .env.production
+  # assets:
+  #   - .env.development
+  #   - .env.production
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

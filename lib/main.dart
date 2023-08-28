@@ -18,19 +18,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     return ResponsiveSizer(
       builder: (_, orientation, screenType) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Marvel Characters - Mobile',
+        title: 'Rick And Morty - App',
         theme: ThemeData.light().copyWith(
           appBarTheme: const AppBarTheme(color: Color.fromRGBO(25, 30, 56, 1)),
         ),
         routes: AppPagesRoute.getRoutes(),
-        initialRoute: AppRoutes.home,
+        initialRoute: AppRoutes.home
       ),
     );
   }
